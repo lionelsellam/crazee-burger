@@ -20,7 +20,7 @@ export default function LoginForm() {
 
   return (
     <form action="submit" onSubmit={handleSubmit}>
-      <h1>Welcome to the Crazee Burger</h1>
+      <h1>Welcome to the Crazee Burger !</h1>
       <br />
       <h2>Login</h2>
 
