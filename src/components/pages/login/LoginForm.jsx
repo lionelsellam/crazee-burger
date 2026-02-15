@@ -3,8 +3,9 @@ import { useNavigate } from "react-router-dom";
 import "./LoginForm.css";
 import "styled-components";
 import styled from "styled-components";
-import { BsPersonCircle } from "react-icons/bs";
 import { IoChevronForward } from "react-icons/io5";
+import { BsPersonCircle } from "react-icons/bs";
+import Input from "./Input";
 
 export default function LoginForm() {
   // State
@@ -26,27 +27,25 @@ export default function LoginForm() {
   // Display (render)
 
   return (
-    <LoginFormStyled action="submit" onSubmit={handleSubmit}>
-      <h1>Welcome to the Crazee Burger !</h1>
-      <hr />
-      <h2>Login</h2>
-
-      <div className="input-with-icon">
-        <BsPersonCircle className="icon" />
-
-        <input
+    <LoginFormStyled action="submit" onSubmit={handleSubmit} required>
+      <div>
+        <h1>Welcome to the Crazee Burger !</h1>
+        <hr />
+        <h2>Login</h2>
+      </div>
+      <div>
+        <Input
           value={inputValue}
           onChange={handleChange}
-          type="text"
-          placeholder="Enter your name"
+          placeholder={"Enter your name"}
           required
+          Icon={<BsPersonCircle className="icon" />}
         />
+        <button className="button-with-icon">
+          <span>Accedez a mon espace</span>
+          <IoChevronForward className="icon" />
+        </button>
       </div>
-
-      <button className="button-with-icon">
-        <span>Accedez a mon espace</span>
-        <IoChevronForward className="icon"/>
-      </button>
     </LoginFormStyled>
   );
 }
@@ -153,7 +152,7 @@ const LoginFormStyled = styled.form`
       margin-left: 10px;
     }
 
-    span{
+    span {
       font-size: 25px;
     }
   }
