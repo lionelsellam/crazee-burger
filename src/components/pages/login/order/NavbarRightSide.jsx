@@ -4,7 +4,7 @@ import Profile from "./Profile";
 export default function NavbarRightSide({ username }) {
   return (
     <NavbarRightSideStyled className="right-side">
-      <Profile />
+      <Profile username={username} />
     </NavbarRightSideStyled>
   );
 }
