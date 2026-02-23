@@ -6,7 +6,7 @@ export default function LoginPage() {
   // Display (render)
   return (
     <LoginFormStyled>
-      <Logo />
+      <Logo className = {"logo-login-page"} />
       <LoginForm />
     </LoginFormStyled>
   );
@@ -33,5 +33,9 @@ const LoginFormStyled = styled.div`
     right: 0;
     bottom: 0;
     z-index: -1;
+  }
+
+  .logo-login-page {
+    transform: scale(2.5);
   }
 `;
