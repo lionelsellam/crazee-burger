@@ -5,7 +5,6 @@ export default function Navbar({ username }) {
   return (
     <NavbarStyled>
       <Logo/>
-      <div className="left-side">Left</div>
       <NavbarRightSide username={username} />
     </NavbarStyled>
   );
