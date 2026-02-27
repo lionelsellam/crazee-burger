@@ -1,10 +1,39 @@
 import styled from "styled-components";
 import Profile from "./Profile";
+import ToggleButton from "../../../../reusable-ui/ToggleButton";
+import { toast } from "react-toastify";
+import { useState } from "react";
+import ToastAdmin from "./ToastAdmin";
 
 export default function NavbarRightSide({ username }) {
+  const [isModelAdmin, setIsModelAdmin] = useState(false);
+
+  const displayToastNotification = () => {
+    if (!isModelAdmin) {
+      toast.info("Mode admin activé", {
+        // icon: <FaUserSecret size={30} />,
+        theme: "dark",
+        position: "bottom-right",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+    setIsModelAdmin(!isModelAdmin);
+  };
+
   return (
-    <NavbarRightSideStyled className="right-side">
+    <NavbarRightSideStyled>
+      <ToggleButton
+        labelIfUnchecked="ACTIVER LE MODE ADMIN"
+        labelIfChecked="DESACTIVER LE MODE ADMIN"
+        onToggle={displayToastNotification}
+      />
       <Profile username={username} />
+      <ToastAdmin />
     </NavbarRightSideStyled>
   );
 }
@@ -12,9 +41,5 @@ export default function NavbarRightSide({ username }) {
 const NavbarRightSideStyled = styled.div`
   display: flex;
   align-items: center;
-  padding: 50px;
-
-  .profile {
-    background: yellow;
-  }
+  padding-right: 50px;
 `;
